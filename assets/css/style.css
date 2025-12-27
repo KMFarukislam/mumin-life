@@ -1,4 +1,8 @@
-/* THEME VARIABLES */
+/* =========================
+   THEME VARIABLES
+   ========================= */
+
+/* 🌙 Dark (default) */
 :root {
   --bg: #0e1320;
   --card: #171c2d;
@@ -6,30 +10,39 @@
   --primary: #7fd1b9;
   --text: #ffffff;
   --muted: #a0a4b8;
+  --border: rgba(255,255,255,0.08);
 }
 
-/* LIGHT MODE */
+/* ☀️ Light (system based) */
 body.light {
   --bg: #f6f7fb;
   --card: #ffffff;
-  --soft: rgba(0,0,0,0.06);
+  --soft: rgba(0,0,0,0.05);
   --primary: #0a3d2e;
   --text: #1a1a1a;
   --muted: #6b7280;
+  --border: rgba(0,0,0,0.08);
 }
+
+/* =========================
+   GLOBAL RESET
+   ========================= */
 
 * {
   box-sizing: border-box;
-  transition: background-color .3s, color .3s;
 }
 
-body {
+html, body {
   margin: 0;
-  background: #000;
-  font-family: system-ui, sans-serif;
+  padding: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #000; /* outside app */
 }
 
-/* APP CONTAINER */
+/* =========================
+   APP CONTAINER
+   ========================= */
+
 .app {
   max-width: 420px;
   min-height: 100vh;
@@ -40,75 +53,94 @@ body {
   flex-direction: column;
 }
 
-/* HEADER */
-.top {
+/* =========================
+   FIXED HEADER (60px)
+   ========================= */
+
+.top-header {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 420px;
   height: 60px;
-  padding: 10px 15px;
+  background: var(--card);
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
+  padding: 0 15px;
+  z-index: 1000;
+  border-bottom: 1px solid var(--border);
 }
 
-.top h1 {
-  margin: 0;
-  font-size: 18px;
-}
-
-.top small {
+/* Location (Left) */
+.header-left {
+  font-size: 13px;
   color: var(--muted);
+  max-width: 55%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-/* CONTENT */
+/* Site Name (Right) */
+.header-right {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+/* =========================
+   MAIN CONTENT
+   ========================= */
+
 .content {
   flex: 1;
   padding: 15px;
+  padding-top: 75px;   /* space for fixed header */
+  padding-bottom: 70px;/* space for bottom nav */
 }
 
-/* CARDS */
+/* =========================
+   CARDS
+   ========================= */
+
 .card {
   background: var(--card);
   border-radius: 18px;
   padding: 15px;
   margin-bottom: 15px;
+  border: 1px solid var(--border);
 }
 
 .banner {
   text-align: center;
-  font-weight: bold;
+  font-weight: 600;
+  letter-spacing: .3px;
 }
 
-.prayer h2 {
-  color: var(--primary);
+.card h1,
+.card h2,
+.card h3 {
+  margin: 6px 0;
 }
 
-/* BOTTOM NAV */
-.bottom {
-  height: 56px;
-  background: var(--card);
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  border-top: 1px solid var(--soft);
-}
-
-.bottom span {
-  font-size: 20px;
+.card p {
+  margin: 4px 0;
   color: var(--muted);
+  font-size: 14px;
 }
 
-.bottom .active {
+/* Highlight text */
+.primary {
   color: var(--primary);
 }
 
-/* THEME BUTTON */
-#themeToggle {
-  background: var(--soft);
-  border: none;
-  border-radius: 12px;
-  padding: 8px 10px;
-  font-size: 16px;
-  color: var(--text);
-}
+/* =========================
+   PRAYER LIST
+   ========================= */
+
 .prayer-list {
   list-style: none;
   padding: 0;
@@ -118,12 +150,67 @@ body {
 .prayer-list li {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 12px 0;
-  border-bottom: 1px solid var(--soft);
+  border-bottom: 1px solid var(--border);
   font-size: 15px;
 }
 
-.prayer-list li span {
+.prayer-list li:last-child {
+  border-bottom: none;
+}
+
+.prayer-list span {
   color: var(--primary);
-  font-weight: bold;
+  font-weight: 600;
+}
+
+/* =========================
+   FIXED BOTTOM NAV
+   ========================= */
+
+.bottom {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 420px;
+  height: 56px;
+  background: var(--card);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-top: 1px solid var(--border);
+  z-index: 1000;
+}
+
+.bottom a {
+  text-decoration: none;
+  font-size: 20px;
+  color: var(--muted);
+}
+
+.bottom a.active {
+  color: var(--primary);
+}
+
+/* =========================
+   SCROLLBAR (MOBILE FRIENDLY)
+   ========================= */
+
+::-webkit-scrollbar {
+  width: 0;
+}
+
+/* =========================
+   SMALL ENHANCEMENTS
+   ========================= */
+
+.fade {
+  opacity: 0.85;
+}
+
+.center {
+  text-align: center;
 }
