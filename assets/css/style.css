@@ -1,1 +1,111 @@
+/* THEME VARIABLES */
+:root {
+  --bg: #0e1320;
+  --card: #171c2d;
+  --soft: rgba(255,255,255,0.06);
+  --primary: #7fd1b9;
+  --text: #ffffff;
+  --muted: #a0a4b8;
+}
 
+/* LIGHT MODE */
+body.light {
+  --bg: #f6f7fb;
+  --card: #ffffff;
+  --soft: rgba(0,0,0,0.06);
+  --primary: #0a3d2e;
+  --text: #1a1a1a;
+  --muted: #6b7280;
+}
+
+* {
+  box-sizing: border-box;
+  transition: background-color .3s, color .3s;
+}
+
+body {
+  margin: 0;
+  background: #000;
+  font-family: system-ui, sans-serif;
+}
+
+/* APP CONTAINER */
+.app {
+  max-width: 420px;
+  min-height: 100vh;
+  margin: auto;
+  background: var(--bg);
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+}
+
+/* HEADER */
+.top {
+  height: 60px;
+  padding: 10px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.top h1 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.top small {
+  color: var(--muted);
+}
+
+/* CONTENT */
+.content {
+  flex: 1;
+  padding: 15px;
+}
+
+/* CARDS */
+.card {
+  background: var(--card);
+  border-radius: 18px;
+  padding: 15px;
+  margin-bottom: 15px;
+}
+
+.banner {
+  text-align: center;
+  font-weight: bold;
+}
+
+.prayer h2 {
+  color: var(--primary);
+}
+
+/* BOTTOM NAV */
+.bottom {
+  height: 56px;
+  background: var(--card);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-top: 1px solid var(--soft);
+}
+
+.bottom span {
+  font-size: 20px;
+  color: var(--muted);
+}
+
+.bottom .active {
+  color: var(--primary);
+}
+
+/* THEME BUTTON */
+#themeToggle {
+  background: var(--soft);
+  border: none;
+  border-radius: 12px;
+  padding: 8px 10px;
+  font-size: 16px;
+  color: var(--text);
+}
