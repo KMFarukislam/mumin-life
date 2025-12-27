@@ -7,50 +7,73 @@
   <title>Mu’min Life – মুমিনের জীবন</title>
 
   <meta name="description"
-        content="Mu’min Life is a modern Islamic website for prayer, Quran, tasbih and daily guidance for a believer’s life.">
+        content="Mu’min Life is a modern Islamic website for prayer time, Quran, tasbih and daily guidance for a believer’s life.">
 
+  <!-- Main CSS -->
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 
 <div class="app">
 
-  <!-- HEADER -->
-  <header class="top">
-    <div>
-      <h1>Mu’min Life</h1>
-      <small>মুমিনের জীবন</small>
-    </div>
+  <!-- 🔝 COMMON FIXED HEADER -->
+  <div id="header"></div>
 
-    <button id="themeToggle">🌙</button>
-  </header>
-
-  <!-- MAIN CONTENT -->
+  <!-- 📄 MAIN PAGE CONTENT -->
   <main class="content">
 
+    <!-- Banner -->
     <div class="card banner">
-      🌙 Ramadan Kareem
+      🌙 Mu’min Life  
+      <div class="fade">মুমিনের জীবন</div>
     </div>
 
-    <div class="card prayer">
-      <small>Hijri Date</small>
-      <h3>Next Prayer</h3>
+    <!-- Prayer Summary -->
+    <div class="card">
+      <small class="fade">Today’s Prayer</small>
+      <h3 class="primary">Next Prayer</h3>
       <h2>Fajr – 5:57 AM</h2>
       <p>Sehri: 5:56 AM • Iftar: 7:18 PM</p>
     </div>
 
+    <!-- Quick Actions -->
+    <div class="card">
+      <h3>Quick Access</h3>
+      <ul class="prayer-list">
+        <li>
+          <span>🕌 Prayer Time</span>
+          <a href="prayer.html">View</a>
+        </li>
+        <li>
+          <span>📖 Holy Quran</span>
+          <a href="quran.html">Read</a>
+        </li>
+        <li>
+          <span>📿 Digital Tasbih</span>
+          <a href="tasbih.html">Start</a>
+        </li>
+      </ul>
+    </div>
+
   </main>
 
-  <!-- BOTTOM NAV -->
-  <nav class="bottom">
-    <span class="active">🏠</span>
-    <span>📖</span>
-    <span>📿</span>
-    <span>⚙️</span>
-  </nav>
+  <!-- 🔻 COMMON FIXED FOOTER (BOTTOM NAV) -->
+  <div id="footer"></div>
 
 </div>
 
+<!-- =========================
+     JS FILES (ORDER MATTERS)
+     ========================= -->
+
+<!-- Load header & footer -->
+<script src="assets/js/include.js"></script>
+
+<!-- Auto detect district/location -->
+<script src="assets/js/location.js"></script>
+
+<!-- System-based theme logic -->
 <script src="assets/js/app.js"></script>
+
 </body>
 </html>
