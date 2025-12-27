@@ -109,3 +109,21 @@ body {
   font-size: 16px;
   color: var(--text);
 }
+.prayer-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.prayer-list li {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--soft);
+  font-size: 15px;
+}
+
+.prayer-list li span {
+  color: var(--primary);
+  font-weight: bold;
+}
